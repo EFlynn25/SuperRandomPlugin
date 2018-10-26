@@ -1,0 +1,5 @@
+canUseExplode: true
+canUseSky: true
+canUseCmdblock: true
+canUseLightningstr: true
+messageIfCannotUse: That command has been turned off.
