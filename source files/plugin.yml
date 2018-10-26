@@ -1,0 +1,25 @@
+name: SuperRandomPlugin
+main: com.flynntech.SuperRandomPlugin
+version: 1.2
+author: OutmodedChip64
+commands:
+   explode:
+      description: Explode other players
+      usage: /explode [player]
+      permission: SuperRandomPlugin.explode
+      permission-message: You don't have the permission <permission>
+   sky:
+      description: Teleport other players to the sky
+      usage: /sky [player]
+      permission: SuperRandomPlugin.sky
+      permission-message: You don't have the permission <permission>
+   cmdblock:
+      description: Gives you a command block
+      usage: /cmdblock
+      permission: SuperRandomPlugin.cmdblock
+      permission-message: You don't have the permission <permission>
+   lightningstr:
+      description: Strike a player with lightning
+      usage: /lightningstr [player]
+      permission: SuperRandomPlugin.lightningstr
+      permission-message: You don't have the permission <permission>
