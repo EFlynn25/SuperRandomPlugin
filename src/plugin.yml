@@ -1,6 +1,6 @@
 name: SuperRandomPlugin
 main: com.flynntech.SuperRandomPlugin
-version: 1.2
+version: 1.3.2
 author: OutmodedChip64
 commands:
    explode:
@@ -22,4 +22,9 @@ commands:
       description: Strike a player with lightning
       usage: /lightningstr [player]
       permission: SuperRandomPlugin.lightningstr
+      permission-message: You don't have the permission <permission>
+   dirt:
+      description: Give a player some good ol' dirt
+      usage: /dirt [player]
+      permission: SuperRandomPlugin.dirt
       permission-message: You don't have the permission <permission>
