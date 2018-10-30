@@ -1,7 +1,7 @@
+pluginVersion: v1.3.2
 canUseExplode: true
 canUseSky: true
 canUseCmdblock: true
 canUseLightningstr: true
-messageIfCannotUse: That command has been turned off.
-pluginVersion: v1.3.2
 canUseDirt: true
+messageIfCannotUse: That command has been turned off.
