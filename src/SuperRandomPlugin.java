@@ -1,11 +1,14 @@
 package com.flynntech;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,6 +16,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.util.StringUtil;
 
 public final class SuperRandomPlugin extends org.bukkit.plugin.java.JavaPlugin
 {
@@ -26,12 +30,11 @@ public final class SuperRandomPlugin extends org.bukkit.plugin.java.JavaPlugin
   
   public void onEnable()
   {
-    getLogger().info("Welcome to SuperRandomPlugin v1.4!");
+    getLogger().info("Welcome to SuperRandomPlugin v1.4.1!");
     getLogger().info("Checking config...");
     checkConfig();
     getLogger().info("SuperRandomPlugin has been enabled");
-    getLogger().info("[ChangeLog] Added new commands, /fillinv and /undoinv");
-    getLogger().info("[ChangeLog] Small fixes");
+    getLogger().info("[ChangeLog] Added autofill for block on /fillinv command (Credit to ShaneBee, Thanks!)");
   }
   
   public void onDisable()
@@ -209,6 +212,19 @@ public final class SuperRandomPlugin extends org.bukkit.plugin.java.JavaPlugin
     return false;
   }
   
+  public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+	  if (command.getName().equalsIgnoreCase("fillinv")) {
+			if (args.length == 2) {
+				List<String> items = new ArrayList<>();
+				for (Material material : Material.values()) {
+					items.add(material.name());
+				}
+				return StringUtil.copyPartialMatches(args[1], items, new ArrayList<>());
+			}
+		}
+		return null;
+  }
+  
   private void checkConfig() {
 	  try {
 		  if (!getDataFolder().exists()) {
@@ -218,7 +234,7 @@ public final class SuperRandomPlugin extends org.bukkit.plugin.java.JavaPlugin
 		  if (!file.exists()) {
 			  getLogger().info("config.yml not found! Creating...");
 			  saveDefaultConfig();
-			  config.set("pluginVersion", "v1.4");
+			  config.set("pluginVersion", "v1.4.1");
 			  config.set("canUseExplode", true);
 			  config.set("canUseSky", true);
 			  config.set("canUseCmdblock", true);
@@ -230,19 +246,24 @@ public final class SuperRandomPlugin extends org.bukkit.plugin.java.JavaPlugin
 			  saveConfig();
 		  } else if (config.getString("pluginVersion") == null) {
 			  getLogger().info("config.yml found, outdated! Updating...");
-			  config.set("pluginVersion", "v1.4");
+			  config.set("pluginVersion", "v1.4.1");
 			  config.set("canUseDirt", true);
 			  config.set("canUsefillinv", true);
 			  config.set("canUseundoinv", true);
 			  saveConfig();
-		  } else if (!(config.getString("pluginVersion") == "v1.4")) {
+		  } else if (!(config.getString("pluginVersion") == "v1.4") && config.getString("pluginVersion") != null) {
 			  getLogger().info("config.yml found, outdated! Updating...");
-			  config.set("pluginVersion", "v1.4");
+			  config.set("pluginVersion", "v1.4.1");
 			  config.set("canUsefillinv", true);
 			  config.set("canUseundoinv", true);
 			  saveConfig();
 		  } else {
 			  getLogger().info("config.yml found! Loading...");
+		  }
+		  if (!(config.getString("pluginVersion") == "v1.4.1")) {
+			  getLogger().info("config.yml found, outdated version! Updating...");
+			  config.set("pluginVersion", "v1.4.1");
+			  saveConfig();
 		  }
 	  } catch (Exception e) {
 		  e.printStackTrace();
