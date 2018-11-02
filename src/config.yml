@@ -4,4 +4,6 @@ canUseSky: true
 canUseCmdblock: true
 canUseLightningstr: true
 canUseDirt: true
+canUseFillinv: true
+canUseUndoinv: true
 messageIfCannotUse: That command has been turned off.
