@@ -1,0 +1,41 @@
+name: SuperRandomPlugin
+main: com.flynntech.SuperRandomPlugin
+version: 1.4.1
+api-version: 1.13
+author: OutmodedChip64
+commands:
+   explode:
+      description: Explode other players
+      usage: /explode [player]
+      permission: SuperRandomPlugin.explode
+      permission-message: You don't have the permission <permission>
+   sky:
+      description: Teleport other players to the sky
+      usage: /sky [player]
+      permission: SuperRandomPlugin.sky
+      permission-message: You don't have the permission <permission>
+   cmdblock:
+      description: Gives you a command block
+      usage: /cmdblock
+      permission: SuperRandomPlugin.cmdblock
+      permission-message: You don't have the permission <permission>
+   lightningstr:
+      description: Strike a player with lightning
+      usage: /lightningstr [player]
+      permission: SuperRandomPlugin.lightningstr
+      permission-message: You don't have the permission <permission>
+   dirt:
+      description: Give someone a stack of good ol' dirt
+      usage: /dirt [player]
+      permission: SuperRandomPlugin.dirt
+      permission-message: You don't have the permission <permission>
+   fillinv:
+      description: Fill someone's inventory with an item or block of your choice
+      usage: /fillinv [player] [item]
+      permission: SuperRandomPlugin.fillinv
+      permission-message: You don't have the permission <permission>
+   undoinv:
+      description: Restore your inventory if someone used /fillinv on you
+      usage: /undoinv
+      permission: SuperRandomPlugin.undoinv
+      permission-message: You don't have the permission <permission>
