@@ -1,6 +1,6 @@
 name: SuperRandomPlugin
 main: com.flynntech.SuperRandomPlugin
-version: 1.3.2
+version: 1.4
 api-version: 1.13
 author: OutmodedChip64
 commands:
@@ -28,4 +28,14 @@ commands:
       description: Give someone a stack of good ol' dirt
       usage: /dirt [player]
       permission: SuperRandomPlugin.dirt
+      permission-message: You don't have the permission <permission>
+   fillinv:
+      description: Fill someone's inventory with an item or block of your choice
+      usage: /fillinv [player] [item]
+      permission: SuperRandomPlugin.fillinv
+      permission-message: You don't have the permission <permission>
+   undoinv:
+      description: Restore your inventory if someone used /fillinv on you
+      usage: /undoinv
+      permission: SuperRandomPlugin.undoinv
       permission-message: You don't have the permission <permission>
