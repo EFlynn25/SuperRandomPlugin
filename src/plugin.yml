@@ -1,6 +1,6 @@
 name: SuperRandomPlugin
 main: com.flynntech.SuperRandomPlugin
-version: 1.4
+version: 1.4.1
 api-version: 1.13
 author: OutmodedChip64
 commands:
